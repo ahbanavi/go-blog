@@ -1,7 +1,8 @@
-package env
+package config
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/joho/godotenv"
 )
@@ -26,6 +27,6 @@ func init() {
 	var err error
 	Envs, err = godotenv.Read()
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 }

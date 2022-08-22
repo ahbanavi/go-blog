@@ -1,10 +1,11 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+)
 
 type User struct {
-	// TODO: add json tags
 	gorm.Model
-	Email        string
-	PasswordHash string
+	Email        string `json:"email" gorm:"type:varchar(100);unique_index" validate:"required,email"`
+	PasswordHash string `json:"-" gorm:"type:char(60)"`
 }
